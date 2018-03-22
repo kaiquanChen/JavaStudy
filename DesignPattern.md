@@ -29,7 +29,7 @@
 ### 2.2.单例模式
 优点:对于某些大型的对象,省去重复创建时的系统开销,并降低GC的压力
 
-### 2.2.1.懒汉式:
+#### 2.2.1.懒汉式:
 >
     public static Singleton getInstance() {
         if (instance == null) { // 第一次创建需要锁
