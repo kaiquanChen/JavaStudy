@@ -6,10 +6,14 @@
 - 生命周期很短,只是为了创建SqlSessionFactory对象
 
 ### 1.3. SqlSessionFactory
-- 是一个产生SqlSession对象的工厂类,生命周期会伴随着整个Mybatis的生命周期
+- 是一个产生SqlSession对象的工厂类,生命周期会伴随着整个Mybatis的生命周期,可以通过工具类Resources的静态方法获取工厂实例对象
+>
+    String resource = "org/mybatis/example/mybatis-config.xml";
+    InputStream inputStream = Resources.getResourceAsStream(resource);
+    SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 
 ### 1.4. SqlSession
-- 类比JDBC的Connection,是线程不安全的,需要手动关闭
+- 类比JDBC的Connection,是线程不安全的,其最佳作用域应该是请求或方法作用域,需要手动关闭(try-finally),
 
 ### 1.5. Mapper
 - 最大生命周期应该和SqlSession相同,一个方法级别的东西

@@ -38,7 +38,7 @@
                     instance = new Singleton();
                 }
             }
-        }    
+        }
         return instace;
     }
     
